@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 
 const Header = (props) => (
   <View style={style.container}>
-    <Text style={style.title}>People</Text>
+    <Text style={style.title}>{props.title}</Text>
   </View>
 );
 
