@@ -12,7 +12,7 @@ export default class App extends React.Component {
     const names = ["Eddie Van Halen", "Jimi Hendrix", "Chimbinha", "Steve Val"];
 
     const textNames = names.map((name) => {
-      return <Text>{name}</Text>;
+      return <Text key={name}>{name}</Text>; //aqui no key, eu tenho que ter certeza que NÃO vai existir outra chave igual
     });
 
     return textNames;
