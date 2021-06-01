@@ -28,10 +28,11 @@ const styles = StyleSheet.create({
   lineText: {
     fontSize: 20,
     paddingLeft: 15,
+    flex: 7,
   },
   avatar: {
     aspectRatio: 1, //mantenha as proporções da imagem REACT
-    width: 48,
+    flex: 1,
   },
 });
 
