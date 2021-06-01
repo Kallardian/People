@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 import Header from "./src/components/Header";
 import PeopleList from "./src/components/PeopleList";
@@ -24,7 +24,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     axios
-      .get("https://randomuser.me/api/?nat=br&results=5")
+      .get("https://randomuser.me/api/?nat=br&results=50")
       .then((response) => {
         const { results } = response.data; // destruct, ele vai procurar um campo results dentro de response.data
         this.setState({
