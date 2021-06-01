@@ -33,6 +33,8 @@ const styles = StyleSheet.create({
   avatar: {
     aspectRatio: 1, //mantenha as proporções da imagem REACT
     flex: 1,
+    marginLeft: 15,
+    borderRadius: 40,
   },
 });
 
