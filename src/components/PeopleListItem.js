@@ -3,10 +3,10 @@ import { Text, View, StyleSheet } from "react-native";
 
 const PeopleListItem = (props) => {
   const { people } = props;
-  const { first, last } = people.name;
+  const { first, last, title } = people.name;
   return (
     <View style={styles.line}>
-      <Text style={styles.lineText}>{first}</Text>
+      <Text style={styles.lineText}>{`${title} ${first} ${last}`}</Text>
     </View>
   );
 };
