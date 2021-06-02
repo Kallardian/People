@@ -9,10 +9,14 @@ import {
 } from "react-native";
 
 const PeopleListItem = (props) => {
-  const { people } = props;
+  const { people, navigateToPeopleDetail } = props;
   const { first, last, title } = people.name;
   return (
-    <TouchableOpacity onPress={() => console.log("Ola")}>
+    <TouchableOpacity
+      onPress={() => {
+        navigateToPeopleDetail();
+      }}
+    >
       <View style={styles.line}>
         <Image
           style={styles.avatar}
