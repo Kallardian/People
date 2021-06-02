@@ -11,11 +11,26 @@ const AppNavigator = createStackNavigator(
     },
     PeopleDetail: {
       screen: PeopleDetailPage,
+      //possivelmente sera defaultNavigationOptions quando eu atualizar
+      // fazer o title ser uma funçãoq ue retorna objeto é bom pra acessar dados da página chamada
+      navigationOptions: ({ navigation }) => {
+        const peopleName = navigation.state.params.people.name.first;
+        return {
+          title: peopleName,
+          //sobrescrevendo as regras que foram passadas ali em baixo
+          headerTitleStyle: {
+            color: "white",
+            fontSize: 30,
+          },
+        };
+      },
     },
   },
   {
+    //opções de navegação global
     defaultNavigationOptions: {
       title: "Pessoas",
+      headerTintColor: "white",
       headerStyle: {
         backgroundColor: "#3c8be6",
         borderBottomWidth: 2,
