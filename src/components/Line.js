@@ -1,10 +1,19 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const Line = ({ label, content }) => {
+//conteúdo padrão caso eu não receba as propriedades, isso é defesa pra caso a API não funfe
+const Line = ({ label = "", content = "" }) => {
   return (
     <View style={styles.line}>
-      <Text style={[styles.cell, styles.label]}>{label} </Text>
+      <Text
+        style={[
+          styles.cell,
+          styles.label,
+          label.length > 9 ? styles.longLabel : null /* Operação ternaria */,
+        ]}
+      >
+        {label}
+      </Text>
       <Text style={[styles.cell, styles.content]}> {content} </Text>
     </View>
   );
@@ -24,8 +33,14 @@ const styles = StyleSheet.create({
   },
   label: {
     fontWeight: "bold",
+    flex: 1,
   },
-  content: {},
+  content: {
+    flex: 3,
+  },
+  longLabel: {
+    fontSize: 12,
+  },
 });
 
 export default Line;
