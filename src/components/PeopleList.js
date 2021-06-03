@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { ScrollView, Text, StyleSheet } from "react-native";
 
 import PeopleListItem from "./PeopleListItem.js";
 
@@ -16,7 +16,7 @@ const PeopleList = (props) => {
     );
   });
 
-  return <View style={styles.container}>{items}</View>;
+  return <ScrollView style={styles.container}>{items}</ScrollView>;
 };
 
 export default PeopleList;

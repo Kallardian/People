@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 //conteúdo padrão caso eu não receba as propriedades, isso é defesa pra caso a API não funfe
-const Line = ({ label = "", content = "" }) => {
+const Line = ({ label = "", content = "-" }) => {
   return (
     <View style={styles.line}>
       <Text

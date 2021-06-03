@@ -23,7 +23,7 @@ export default class PeoplePage extends React.Component {
 
   componentDidMount() {
     axios
-      .get("https://randomuser.me/api/?nat=br&results=15")
+      .get("https://randomuser.me/api/?nat=br&results=20")
       .then((response) => {
         const { results } = response.data; // destruct, ele vai procurar um campo results dentro de response.data
         this.setState({
