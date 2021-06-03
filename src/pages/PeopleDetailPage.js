@@ -16,7 +16,7 @@ export default class PeopleDetailPage extends React.Component {
           <Line label="Estado:" content={people.location.state} />
           <Line label="Tel:" content={people.phone} />
           <Line label="Cel:" content={people.cell} />
-          <Line label="Nat:" content={people.nat} />
+          <Line label="Nacionalidade:" content={people.nat} />
         </View>
       </View>
     );
