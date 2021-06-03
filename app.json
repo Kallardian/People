@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "people",
+    "name": "People",
     "slug": "people",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Apenas uma lista de pessoas com a API randomuser.me.",
+    "githubUrl": "https://github.com/Kallardian/People"
   }
 }
