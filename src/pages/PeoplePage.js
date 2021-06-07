@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, ActivityIndicator, View } from "react-native";
+import { StyleSheet, ActivityIndicator, View, Text } from "react-native";
 
 import PeopleList from "../components/PeopleList";
 
@@ -19,6 +19,7 @@ export default class PeoplePage extends React.Component {
     this.state = {
       peoples: [],
       loading: false,
+      error: false,
     };
   }
 
@@ -34,9 +35,14 @@ export default class PeoplePage extends React.Component {
             peoples: results,
             loading: false,
           });
+        })
+        .catch((error) => {
+          this.setState({ error: true, loading: false });
         });
     }, 2500);
   }
+  // Essa função pdoeria ser RenderPage pra retornar tudo aqui invés daquele
+  // monte de operação ternária lá em baixo
 
   // renderLoading() {
   //   if (this.state.loading) {
@@ -53,6 +59,8 @@ export default class PeoplePage extends React.Component {
         {/* {this.renderLoading()} */}
         {this.state.loading ? (
           <ActivityIndicator size="large" color="3c8be6" />
+        ) : this.state.error ? (
+          <Text style={styles.error}> Ops... Algo Deu Errado</Text>
         ) : (
           <PeopleList
             peoples={this.state.peoples}
@@ -70,5 +78,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
+  },
+  error: {
+    color: "red",
+    alignSelf: "center",
+    fontSize: 18,
   },
 });
