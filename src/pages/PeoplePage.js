@@ -1,5 +1,5 @@
 import React from "react";
-import { ActivityIndicator, View } from "react-native";
+import { StyleSheet, ActivityIndicator, View } from "react-native";
 
 import PeopleList from "../components/PeopleList";
 
@@ -35,7 +35,7 @@ export default class PeoplePage extends React.Component {
             loading: false,
           });
         });
-    }, 1500);
+    }, 2500);
   }
 
   // renderLoading() {
@@ -49,18 +49,26 @@ export default class PeoplePage extends React.Component {
     // this.props.navigation.navigate(/* Chave da página */, /* state */)
     // this.props.navigation.navigate("PeopleDetail");
     return (
-      <View>
+      <View style={styles.container}>
         {/* {this.renderLoading()} */}
         {this.state.loading ? (
           <ActivityIndicator size="large" color="3c8be6" />
-        ) : null}
-        <PeopleList
-          peoples={this.state.peoples}
-          onPressItem={(pageParams) => {
-            this.props.navigation.navigate("PeopleDetail", pageParams);
-          }}
-        />
+        ) : (
+          <PeopleList
+            peoples={this.state.peoples}
+            onPressItem={(pageParams) => {
+              this.props.navigation.navigate("PeopleDetail", pageParams);
+            }}
+          />
+        )}
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+  },
+});
