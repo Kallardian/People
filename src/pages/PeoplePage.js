@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { ActivityIndicator, View } from "react-native";
 
 import PeopleList from "../components/PeopleList";
 
@@ -18,19 +18,24 @@ export default class PeoplePage extends React.Component {
 
     this.state = {
       peoples: [],
+      loading: false,
     };
   }
 
   componentDidMount() {
-    axios
-      .get("https://randomuser.me/api/?nat=br&results=150")
-      .then((response) => {
-        const { results } = response.data; // destruct, ele vai procurar um campo results dentro de response.data
-        this.setState({
-          //overwriting o state inicial
-          peoples: results,
+    this.setState({ loading: true });
+    setTimeout(() => {
+      axios
+        .get("https://randomuser.me/api/?nat=br&results=150")
+        .then((response) => {
+          const { results } = response.data; // destruct, ele vai procurar um campo results dentro de response.data
+          this.setState({
+            //overwriting o state inicial
+            peoples: results,
+            loading: false,
+          });
         });
-      });
+    }, 1500);
   }
 
   render() {
@@ -38,6 +43,7 @@ export default class PeoplePage extends React.Component {
     // this.props.navigation.navigate("PeopleDetail");
     return (
       <View>
+        <ActivityIndicator size="large" color="3c8be6" />
         <PeopleList
           peoples={this.state.peoples}
           onPressItem={(pageParams) => {
