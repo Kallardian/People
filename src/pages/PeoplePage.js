@@ -38,12 +38,22 @@ export default class PeoplePage extends React.Component {
     }, 1500);
   }
 
+  // renderLoading() {
+  //   if (this.state.loading) {
+  //     return <ActivityIndicator size="large" color="3c8be6" />;
+  //   }
+  //   null;
+  // }
+
   render() {
     // this.props.navigation.navigate(/* Chave da página */, /* state */)
     // this.props.navigation.navigate("PeopleDetail");
     return (
       <View>
-        <ActivityIndicator size="large" color="3c8be6" />
+        {/* {this.renderLoading()} */}
+        {this.state.loading ? (
+          <ActivityIndicator size="large" color="3c8be6" />
+        ) : null}
         <PeopleList
           peoples={this.state.peoples}
           onPressItem={(pageParams) => {
